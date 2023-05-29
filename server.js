@@ -133,6 +133,10 @@ function setSpeed(data){
     }
 }
 
+function stop(){
+    clearInterval(id);
+}
+
 function playGame() {
     // var k = 0;
     for (let i = 0; i < grassArr.length; i++) {
@@ -174,6 +178,7 @@ io.on("connection",function(socket){
 
 socket.on("speed",setSpeed)
 socket.on("start",start)
+socket.on("stop", stop)
 })
 
 

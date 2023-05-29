@@ -27,6 +27,7 @@ function Spring(evt) {
     predatorColor = "#FF8A8A"
     hunterColor = "#673c3c"
     socket.emit("speed", "spring")
+    gamee = document.getElementById("gamee").innerHTML ="Click the button to stop the game!"
 }
 
 
@@ -44,6 +45,7 @@ function summer(evt) {
     predatorColor = "red"
     hunterColor = "brown"
     socket.emit("speed", "summer")
+    gamee = document.getElementById("gamee").innerHTML ="Click the button to stop the game!"
 }
 
 //console.log(sum)
@@ -58,6 +60,7 @@ function Fall(evt) {
     predatorColor = "#872C2C"
     hunterColor = "#4A2F2F"
     socket.emit("speed", "fall")
+    gamee = document.getElementById("gamee").innerHTML ="Click the button to stop the game!"
 }
 
 
@@ -72,6 +75,7 @@ function Winter(evt) {
     predatorColor = "#641010"
     hunterColor = "#251818"
     socket.emit("speed", "winter")
+    gamee = document.getElementById("gamee").innerHTML ="Click the button to stop the game!"
 }
 
 
@@ -79,8 +83,10 @@ var w = document.getElementById("winter");
 w.addEventListener("click", Winter);
 //p.onclick = Winter();
 
-function startt(){
+var gamee = document.getElementById("gamee");
 
+function startt(){
+    gamee = document.getElementById("gamee").innerHTML ="Click the button to stop the game!"
     socket.emit("start", "start")
 }
 
@@ -88,6 +94,14 @@ var st= document.getElementById("start");
 st.addEventListener("click", startt);
 
 
+function stopevent(){
+    st = document.getElementById("start").innerHTML = "Continue";
+    gamee = document.getElementById("gamee").innerHTML = "Click the button to continue the game!";
+    socket.emit("stop", "stop")
+}
+
+var stop = document.getElementById("stop");
+stop.addEventListener("click", stopevent);
 
 function drawGame(matrix) {
     for (var y = 0; y < matrix.length; y++) {
